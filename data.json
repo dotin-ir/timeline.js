@@ -1,0 +1,49 @@
+{
+	"title":"برنامه‌ی زمانی اسپرینت‌های واحد بانکداری متمرکز، بهار ۹۵",
+	"season": 
+	{
+		"startsOnDayOfWeek": 1,
+		"weekend": 6,
+		"months":
+		[
+			{
+				"name": "فروردین",
+				"numOfDays":31,
+				"holidays": [1, 2, 3, 4, 12]
+			},
+			{
+				"name": "اردیبهشت",
+				"numOfDays":31,
+				"holidays": [2, 16]
+			},
+			{
+				"name": "خرداد",
+				"numOfDays":31,
+				"holidays": [2, 15]
+			}
+		]
+	},
+	"teams":
+	[
+		{
+			"name": "تسهیلات",
+			"sprints":[]
+		},
+		{
+			"name": "حساب‌داری",
+			"sprints":[]
+		},
+		{
+			"name": "ضمانت‌نامه",
+			"sprints":[]
+		},
+		{
+			"name": "منابع",
+			"sprints":[]
+		},
+		{
+			"name": "وصول مطالبات",
+			"sprints":[]
+		}
+	]
+}
