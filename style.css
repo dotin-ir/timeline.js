@@ -1,3 +1,23 @@
 .offDay {
-	background-color: red;
+	background-color: pink;
+}
+
+.monthNames {
+	background-color: #DDDDDD;
+}
+
+.sprint {
+	background-color: green;
+}
+
+td {
+	border-left: 0.5px dotted grey;
+	border-spacing: 0;
+	padding: 0;
+	border-collapse: separate;
+	text-align: center;
+}
+
+col {
+	min-width: 25px;
 }
