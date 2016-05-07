@@ -3,6 +3,10 @@
 }
 
 .monthNames {
+	background-color: white;
+}
+
+.dayNumbers {
 	background-color: #DDDDDD;
 }
 

@@ -39,10 +39,10 @@ $( document ).ready(function() {
 		sprints.append(colHeader);
 
 		var monthNames = $('<tr></tr>').addClass('monthNames');
-		var days = $('<tr></tr>');
+		var days = $('<tr></tr>').addClass('dayNumbers');
 
 		monthNames.append($('<th></th>').text('ماه'));
-		days.append($('<th></th>').text('روز'));
+		days.append($('<td></td>').text('روز'));
 
 		for (var i=0; i<months.length; i++) {
 			var month = months[i];
