@@ -46,9 +46,18 @@ $( document ).ready(function() {
 
 		for (var i=0; i<months.length; i++) {
 			var month = months[i];
-			monthNames.append($('<th></th>').text(month.name).attr('colspan', month.numOfDays));
+
+			var monthName = $('<th></th>').text(month.name).attr('colspan', month.numOfDays);
+			if (month.id != 1) {
+				monthName.addClass('firstDay');
+			}
+			monthNames.append(monthName);
+
 			for (var j=1; j<=month.numOfDays; j++) {
 				var day = $('<td></td>').text(convert(j)).addClass('vertical-text');
+				if (month.id != 1 && j == 1) {
+					day.addClass('firstDay');
+				}
 				days.append(day);
 			}
 		}
@@ -74,6 +83,9 @@ $( document ).ready(function() {
 					monthId = months[m].id;
 					for (day = 1; day <= months[m].numOfDays; day++) {
 						var dayCol = $('<td></td>');
+						if (monthId != 1 && day == 1) {
+							dayCol.addClass('firstDay');
+						}
 						
 						if ((planning.monthId == monthId && planning.day <= day
 														|| planning.monthId < monthId)

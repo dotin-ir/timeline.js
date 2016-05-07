@@ -1,5 +1,5 @@
 .offDay {
-	background-color: pink;
+	background-color: #ffe5e5;
 }
 
 .monthNames {
@@ -15,11 +15,15 @@
 }
 
 td {
-	border-left: 0.5px dotted grey;
+	border-right: 1px dotted grey;
 	border-spacing: 0;
 	padding: 0;
 	border-collapse: separate;
 	text-align: center;
+}
+
+.firstDay {
+	border-right: 2px dashed grey;
 }
 
 col {
@@ -36,4 +40,8 @@ col {
 	height: 128px;
 	min-width: 55px;
 	padding-right: 25px;
+}
+
+table {
+	padding-left: 10px;
 }
