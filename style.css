@@ -2,6 +2,18 @@
 	background-color: #ffe5e5;
 }
 
+.today {
+	background: repeating-linear-gradient(
+		90deg,
+		white,
+		white 10px,
+		grey 5px,
+		grey 15px
+		/*#88bb88 5px,
+		#88cc88 15px*/
+	);
+}
+
 .monthNames {
 	background-color: white;
 }

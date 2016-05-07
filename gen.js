@@ -14,6 +14,11 @@ function convert(number) {
 
 $( document ).ready(function() {
 	$.getJSON('data.json', function( data ) {
+		var gD = new Date();
+		var jD = toJalaali(gD.getFullYear(), gD.getMonth()+1, gD.getDate());
+		var jMonth = jD.jm;
+		var jDay = jD.jd;
+
 		$('#title').append($('<h1></h1>').text(data.title));
 		var sprints = $('<table></table>').attr('cellspacing', 0);
 
@@ -31,9 +36,13 @@ $( document ).ready(function() {
 				if (dayOfWeek % 7 == weekend || $.inArray(j, month.holidays) != -1) {
 					col.addClass('offDay');
 				}
+				if (month.id == jMonth && j == jDay) {
+					col.addClass('today');
+				}
 				colHeader.append(col);
 
 				dayOfWeek++;
+
 			}
 		}
 		sprints.append(colHeader);
