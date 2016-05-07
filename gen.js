@@ -1,4 +1,6 @@
 var persian = ['۰', '۱', '۲',  '۳',  '۴',  '۵',  '۶',  '۷',  '۸', '۹'];
+var daysOfWeek = ['شنبه', 'یک‌شنبه', 'دوشنبه',  'سه‌شنبه',  'چهارشنبه',  'پنج‌شنبه',  'جمعه'];
+
 function convertDigit(number) {
 	return persian[number];
 }
@@ -28,6 +30,8 @@ $( document ).ready(function() {
 		var dayOfWeek = data.season.startsOnDayOfWeek;
 		var weekend = data.season.weekend;
 
+		var weekDays = $('<tr></tr>').append('<td></td>');
+
 		colHeader.append($('<col/>'));
 		for (var i=0; i<months.length; i++) {
 			var month = months[i];
@@ -41,8 +45,9 @@ $( document ).ready(function() {
 				}
 				colHeader.append(col);
 
-				dayOfWeek++;
+				weekDays.append($('<td></td>').addClass('vertical-text dayOfWeek').text(daysOfWeek[dayOfWeek%7]));
 
+				dayOfWeek++;
 			}
 		}
 		sprints.append(colHeader);
@@ -118,6 +123,7 @@ $( document ).ready(function() {
 				sprintRow = $('<tr></tr>');
 			}
 		}
+		sprints.append(weekDays);
 
 		$('#sprints').append(sprints);
 	});

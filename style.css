@@ -57,3 +57,8 @@ col {
 table {
 	padding-left: 10px;
 }
+
+.dayOfWeek {
+	background-color: #DDDDDD;
+	border-top: 1px solid grey;
+}
