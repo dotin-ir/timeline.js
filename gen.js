@@ -48,7 +48,7 @@ $( document ).ready(function() {
 			var month = months[i];
 			monthNames.append($('<th></th>').text(month.name).attr('colspan', month.numOfDays));
 			for (var j=1; j<=month.numOfDays; j++) {
-				var day = $('<td></td>').text(convert(j));
+				var day = $('<td></td>').text(convert(j)).addClass('vertical-text');
 				days.append(day);
 			}
 		}
@@ -60,8 +60,10 @@ $( document ).ready(function() {
 			var team = data.teams[i];
 
 			var sprintRow = $('<tr></tr>');
-			var nameCell = $('<td></td>').text(team.name);
+			var nameCell = $('<td></td>').text(team.name).addClass('vertical-text');
+			nameCell.addClass('team-name');
 			nameCell.attr('rowspan', Math.max(1, team.sprints.length));
+			nameCell.attr('style', 'background-color: ' + team.color + ';');
 			sprintRow.append(nameCell);
 			//sprints.append(teamRow);
 
@@ -80,7 +82,7 @@ $( document ).ready(function() {
 																&& retrospective.day >= day
 												|| retrospective.monthId > monthId))
 						{
-							dayCol.addClass('sprint');
+							dayCol.attr('style', 'background-color: ' + team.color + ';');
 							if (planning.monthId == monthId && planning.day == day) {
 								dayCol.append($('<i></i>').addClass('fa fa-check-square-o'));
 							}

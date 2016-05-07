@@ -10,8 +10,8 @@
 	background-color: #DDDDDD;
 }
 
-.sprint {
-	background-color: green;
+.dayNumbers > td {
+	height: 25px;
 }
 
 td {
@@ -24,4 +24,16 @@ td {
 
 col {
 	min-width: 25px;
+}
+
+.vertical-text {
+	writing-mode: tb-rl;
+	/*transform: rotate(90deg);
+	transform-origin: left top 0;*/
+}
+
+.team-name {
+	height: 128px;
+	min-width: 55px;
+	padding-right: 25px;
 }
