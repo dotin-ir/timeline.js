@@ -39,10 +39,10 @@
 				},
 				{
 					"planning": { "monthId": 2, "day": 5 },
-					"retrospective": { "monthId": 2, "day": 18 }
+					"retrospective": { "monthId": 2, "day": 25 }
 				},
 				{
-					"planning": { "monthId": 2, "day": 19 },
+					"planning": { "monthId": 2, "day": 26 },
 					"retrospective": { "monthId": 3, "day": 8 }
 				},
 				{
