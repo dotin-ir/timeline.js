@@ -1,5 +1,5 @@
 {
-	"title":"برنامه‌ی زمانی اسپرینت‌های واحد بانکداری متمرکز، بهار ۹۵",
+	"title": "disabled",
 	"season": 
 	{
 		"startsOnDayOfWeek": 1,
@@ -28,6 +28,29 @@
 	},
 	"teams":
 	[
+		{
+			"name": "بهبود مستمر",
+			"color": "#dd4444",
+			"sprints":
+			[
+				{
+					"planning": { "monthId": 2, "day": 15 },
+					"retrospective": { "monthId": 2, "day": 29 }
+				},
+				{
+					"planning": { "monthId": 2, "day": 29 },
+					"retrospective": { "monthId": 3, "day": 12 }
+				},
+				{
+					"planning": { "monthId": 3, "day": 12 },
+					"retrospective": { "monthId": 3, "day": 26 }
+				},
+				{
+					"planning": { "monthId": 3, "day": 26 },
+					"retrospective": "infinity"
+				}
+			]
+		},
 		{
 			"name": "تسهیلات",
 			"color": "#62a222",
