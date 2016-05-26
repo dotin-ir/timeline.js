@@ -26,171 +26,171 @@
 			}
 		]
 	},
-	"teams":
+	"swimlanes":
 	[
 		{
-			"name": "بهبود مستمر",
+			"title": "بهبود مستمر",
 			"color": "#dd4444",
-			"sprints":
+			"intervals":
 			[
 				{
-					"planning": { "monthId": 2, "day": 15 },
-					"retrospective": { "monthId": 2, "day": 29 }
+					"from": { "calendar": "Jalali", "date": {"year":1395, "month": 2, "day": 15 } },
+					"to": { "calendar": "Jalali", "date": {"year":1395, "month": 2, "day": 29 } }
 				},
 				{
-					"planning": { "monthId": 2, "day": 29 },
-					"retrospective": { "monthId": 3, "day": 12 }
+					"from": { "calendar": "Jalali", "date": {"year":1395, "month": 2, "day": 29 } },
+					"to": { "calendar": "Jalali", "date": {"year":1395, "month": 3, "day": 12 } }
 				},
 				{
-					"planning": { "monthId": 3, "day": 12 },
-					"retrospective": { "monthId": 3, "day": 26 }
+					"from": { "calendar": "Jalali", "date": {"year":1395, "month": 3, "day": 12 } },
+					"to": { "calendar": "Jalali", "date": {"year":1395, "month": 3, "day": 26 } }
 				},
 				{
-					"planning": { "monthId": 3, "day": 26 },
-					"retrospective": "infinity"
+					"from": { "calendar": "Jalali", "date": {"year":1395, "month": 3, "day": 26 } },
+					"to": "eternity"
 				}
 			]
 		},
 		{
-			"name": "تسهیلات",
+			"title": "تسهیلات",
 			"color": "#62a222",
-			"sprints":
+			"intervals":
 			[
 				{
-					"planning": { "monthId": 1, "day": 22 },
-					"retrospective": { "monthId": 2, "day": 4 }
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 1, "day": 22 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 2, "day": 4 } }
 				},
 				{
-					"planning": { "monthId": 2, "day": 5 },
-					"retrospective": { "monthId": 2, "day": 25 }
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 2, "day": 5 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 2, "day": 25 } }
 				},
 				{
-					"planning": { "monthId": 2, "day": 26 },
-					"retrospective": { "monthId": 3, "day": 8 }
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 2, "day": 26 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 8 } }
 				},
 				{
-					"planning": { "monthId": 3, "day": 9 },
-					"retrospective": { "monthId": 3, "day": 22 }
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 9 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 22 } }
 				},
 				{
-					"planning": { "monthId": 3, "day": 23 },
-					"retrospective": "infinity"
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 23 } },
+					"to": "eternity"
 				}
 			]
 		},
 		{
-			"name": "حساب‌داری",
+			"title": "حساب‌داری",
 			"color": "#7777dd",
-			"sprints":
+			"intervals":
 			[
 				{
-					"planning": { "monthId": 1, "day": 17 },
-					"retrospective": { "monthId": 1, "day": 30 }
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 1, "day": 17 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 1, "day": 30 } }
 				},
 				{
-					"planning": { "monthId": 1, "day": 31 },
-					"retrospective": { "monthId": 2, "day": 13 }
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 1, "day": 31 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 2, "day": 13 } }
 				},
 				{
-					"planning": { "monthId": 2, "day": 14 },
-					"retrospective": { "monthId": 2, "day": 27 }
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 2, "day": 14 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 2, "day": 27 } }
 				},
 				{
-					"planning": { "monthId": 2, "day": 28 },
-					"retrospective": { "monthId": 3, "day": 10 }
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 2, "day": 28 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 10 } }
 				},
 				{
-					"planning": { "monthId": 3, "day": 11 },
-					"retrospective": { "monthId": 3, "day": 24 }
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 11 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 24 } }
 				}
 			]
 		},
 		{
-			"name": "ضمانت‌نامه",
+			"title": "ضمانت‌نامه",
 			"color": "#ffbd00",
-			"sprints":
+			"intervals":
 			[
 				{
-					"planning": { "monthId": 1, "day": 15 },
-					"retrospective": { "monthId": 1, "day": 24 }
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 1, "day": 15 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 1, "day": 24 } }
 				},
 				{
-					"planning": { "monthId": 1, "day": 25 },
-					"retrospective": { "monthId": 2, "day": 7 }
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 1, "day": 25 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 2, "day": 7 } }
 				},
 				{
-					"planning": { "monthId": 2, "day": 8 },
-					"retrospective": { "monthId": 2, "day": 21 }
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 2, "day": 8 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 2, "day": 21 } }
 				},
 				{
-					"planning": { "monthId": 2, "day": 22 },
-					"retrospective": { "monthId": 3, "day": 4 }
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 2, "day": 22 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 4 } }
 				},
 				{
-					"planning": { "monthId": 3, "day": 5 },
-					"retrospective": { "monthId": 3, "day": 18 }
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 5 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 18 } }
 				},
 				{
-					"planning": { "monthId": 3, "day": 19 },
-					"retrospective": "infinity"
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 19 } },
+					"to": "eternity"
 				}
 			]
 		},
 		{
-			"name": "منابع",
+			"title": "منابع",
 			"color": "#00aadd",
-			"sprints":
+			"intervals":
 			[
 				{
-					"planning": { "monthId": 1, "day": 16 },
-					"retrospective": { "monthId": 2, "day": 5 }
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 1, "day": 16 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 2, "day": 5 } }
 				},
 				{
-					"planning": { "monthId": 2, "day": 6 },
-					"retrospective": { "monthId": 2, "day": 19 }
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 2, "day": 6 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 2, "day": 19 } }
 				},
 				{
-					"planning": { "monthId": 2, "day": 20 },
-					"retrospective": { "monthId": 3, "day": 1 }
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 2, "day": 20 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 1 } }
 				},
 				{
-					"planning": { "monthId": 3, "day": 3 },
-					"retrospective": { "monthId": 3, "day": 16 }
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 3 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 16 } }
 				},
 				{
-					"planning": { "monthId": 3, "day": 17 },
-					"retrospective": { "monthId": 3, "day": 31 }
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 17 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 31 } }
 				}
 			]
 		},
 		{
-			"name": "وصول مطالبات",
+			"title": "وصول مطالبات",
 			"color": "#ff8533",
-			"sprints":
+			"intervals":
 			[
 				{
-					"planning": { "monthId": 1, "day": 7 },
-					"retrospective": { "monthId": 1, "day": 21 }
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 1, "day": 7 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 1, "day": 21 } }
 				},
 				{
-					"planning": { "monthId": 1, "day": 21 },
-					"retrospective": { "monthId": 2, "day": 4 }
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 1, "day": 21 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 2, "day": 4 } }
 				},
 				{
-					"planning": { "monthId": 2, "day": 4 },
-					"retrospective": { "monthId": 2, "day": 18 }
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 2, "day": 4 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 2, "day": 18 } }
 				},
 				{
-					"planning": { "monthId": 2, "day": 18 },
-					"retrospective": { "monthId": 3, "day": 8 }
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 2, "day": 18 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 8 } }
 				},
 				{
-					"planning": { "monthId": 3, "day": 8 },
-					"retrospective": { "monthId": 3, "day": 22 }
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 8 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 22 } }
 				},
 				{
-					"planning": { "monthId": 3, "day": 22 },
-					"retrospective": "infinity"
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 22 } },
+					"to": "eternity"
 				}
 			]
 		}

@@ -1,12 +1,12 @@
 var persianDigits = ['۰', '۱', '۲',  '۳',  '۴',  '۵',  '۶',  '۷',  '۸', '۹'];
-var daysOfWeek = ['شنبه', 'یک‌شنبه', 'دوشنبه',  'سه‌شنبه',  'چهارشنبه',  'پنج‌شنبه',  'جمعه'];
+var dowNames = ['شنبه', 'یک‌شنبه', 'دوشنبه',  'سه‌شنبه',  'چهارشنبه',  'پنج‌شنبه',  'جمعه'];
 
 $( document ).ready(function() {
 	$.getJSON('data.json', function( data ) {
 
 		addTitle(data.title);
 
-		addSprints(data);
+		addTimeline(data);
 
 	});
 });
@@ -17,20 +17,20 @@ function addTitle(title) {
 	}
 }
 
-function addSprints(data) {
-	var sprints = $('<table></table>').attr('cellspacing', 0);
+function addTimeline(data) {
+	var timeline = $('<table></table>').attr('cellspacing', 0);
 
-	appendHeadersToSprints(sprints, data.season);
-	appendTeamsToSprints(sprints, data.teams, data.season.months);
-	appendFootersToSprints(sprints, data.season);
+	appendHeadersToTimeline(timeline, data.season);
+	appendSwimlanesToTimeline(timeline, data.swimlanes, data.season.months);
+	appendFootersToTimeline(timeline, data.season);
 
-	$('#sprints').append(sprints);
+	$('#timeline').append(timeline);
 }
 
-function appendHeadersToSprints(sprints, season) {
-	sprints.append(createHeaderColumns(season.months, season.startsOnDayOfWeek, season.weekend));
-	sprints.append(createMonthsHeader(season.months));
-	sprints.append(createDaysHeader(season.months));
+function appendHeadersToTimeline(timeline, season) {
+	timeline.append(createHeaderColumns(season.months, season.startsOnDayOfWeek, season.weekend));
+	timeline.append(createMonthsHeader(season.months));
+	timeline.append(createDaysHeader(season.months));
 }
 
 function createHeaderColumns(months, startsOnDayOfWeek, weekend) {
@@ -49,21 +49,21 @@ function createTitleRowColumn() {
 	return $('<col/>');
 }
 
-function appendMonthToColHeader(colHeader, monthId, numOfDays, firstDayOfWeek, weekend, holidays) {
+function appendMonthToColHeader(colHeader, month, numOfDays, firstDayOfWeek, weekend, holidays) {
 	dayOfWeek = firstDayOfWeek;
 	for (var dayOfMonth=1; dayOfMonth<=numOfDays; dayOfMonth++) {
-		colHeader.append(createColumnForDay(monthId, dayOfMonth, dayOfWeek, weekend, holidays));
+		colHeader.append(createColumnForDay(month, dayOfMonth, dayOfWeek, weekend, holidays));
 		dayOfWeek++;
 		dayOfWeek %= 7;
 	}
 }
 
-function createColumnForDay(monthId, dayOfMonth, dayOfWeek, weekend, holidays) {
+function createColumnForDay(month, dayOfMonth, dayOfWeek, weekend, holidays) {
 	var col = $('<col/>').text(dayOfMonth);
 	if (isWeekend(dayOfWeek, weekend) || isHolliday(dayOfMonth, holidays)) {
 		col.addClass('offDay');
 	}
-	if (isToday(monthId, dayOfMonth)) {
+	if (isToday(month, dayOfMonth)) {
 		col.addClass('today');
 	}
 	return col;
@@ -116,9 +116,9 @@ function appendDaysHeaderForMonth(daysHeader, month) {
 	}
 }
 
-function createDayHeader(monthId, dayOfMonth) {
+function createDayHeader(month, dayOfMonth) {
 	var day = $('<td></td>').text(convert(dayOfMonth)).addClass('vertical-text');
-	if (monthId != 1 && dayOfMonth == 1) {
+	if (month != 1 && dayOfMonth == 1) {
 		day.addClass('monthSeparator');
 	}
 	return day;
@@ -137,87 +137,89 @@ function convertDigit(number) {
 	return persianDigits[number];
 }
 
-function appendTeamsToSprints(sprints, teams, months) {
-	for (var i=0; i<teams.length; i++) {
-		appendTeamSprints(sprints, teams[i], months);
+function appendSwimlanesToTimeline(timeline, swimlanes, months) {
+	for (var i=0; i<swimlanes.length; i++) {
+		appendSwimlaneToTimeline(timeline, swimlanes[i], months);
 	}
 }
 
-function appendTeamSprints(sprints, team, months) {
-
-	for (var sprintId=0; sprintId<team.sprints.length; sprintId++) {
-		sprints.append(createSprintRow(team, sprintId, months));
+function appendSwimlaneToTimeline(timeline, swimlane, months) {
+	for (var intervalId=0; intervalId<swimlane.intervals.length; intervalId++) {
+		timeline.append(createIntervalRow(swimlane, intervalId, months));
 	}
 }
 
-function createSprintRow(team, sprintId, months) {
-	var sprintRow = $('<tr></tr>');
-	if (sprintId == 0) {
-		sprintRow.append(createNameCell(team));
+function createIntervalRow(swimlane, intervalId, months) {
+	var intervalRow = $('<tr></tr>');
+	if (intervalId == 0) {
+		intervalRow.append(createTitleCell(swimlane));
 	}
 
 	for (m = 0; m < months.length; m++) {
-		appendMonthForSprint(sprintRow, months[m], team.sprints[sprintId], team.color);
+		appendMonthForInterval(intervalRow, months[m], swimlane.intervals[intervalId], swimlane.color);
 	}
-	return sprintRow;
+	return intervalRow;
 }
 
-function createNameCell(team) {
-	var nameCell = $('<td></td>').text(team.name).addClass('vertical-text');
-	nameCell.addClass('team-name');
-	nameCell.attr('rowspan', Math.max(1, team.sprints.length));
-	nameCell.attr('style', 'background-color: ' + team.color + ';');
-	return nameCell;
+function createTitleCell(swimlane) {
+	var titleCell = $('<td></td>').text(swimlane.title).addClass('vertical-text');
+	titleCell.addClass('swimlane-title');
+	titleCell.attr('rowspan', Math.max(1, swimlane.intervals.length));
+	titleCell.attr('style', 'background-color: ' + swimlane.color + ';');
+	return titleCell;
 }
 
-function appendMonthForSprint(sprintRow, month, sprint, teamColor) {
+function appendMonthForInterval(intervalRow, month, interval, swimlaneColor) {
 	for (day = 1; day <= month.numOfDays; day++) {
-		sprintRow.append(createDayCell(month.id, day, sprint.planning, sprint.retrospective, teamColor));
+		intervalRow.append(createDayCell(month.id, day, interval.from, interval.to, swimlaneColor));
 	}
 }
 
-function createDayCell(monthId, day, planning, retrospective, teamColor) {
+function createDayCell(month, day, from, to, swimlaneColor) {
 	var dayCell = $('<td></td>');
-	if (monthId != 1 && day == 1) {
+	if (month != 1 && day == 1) {
 		dayCell.addClass('monthSeparator');
 	}
 	
-	if (isDayInSprint(monthId, day, planning, retrospective)) {
-		dayCell.attr('style', 'background-color: ' + teamColor + ';');
-		applyDayIcons(dayCell, monthId, day, planning, retrospective);
+	if (isDayInInterval(month, day, from, to)) {
+		dayCell.attr('style', 'background-color: ' + swimlaneColor + ';');
+		applyDayIcons(dayCell, month, day, from, to);
 	}
 	return dayCell;
 }
 
-function applyDayIcons(dayCell, monthId, day, planning, retrospective) {
-	if (isPlanningDay(monthId, day, planning)) {
+function applyDayIcons(dayCell, month, day, from, to) {
+	if (isBeginningDay(month, day, from)) {
 		dayCell.append($('<i></i>').addClass('fa fa-check-square-o'));
 	}
-	if (isRetrospectiveDay(monthId, day, retrospective)) {
+	if (isEndingDay(month, day, to)) {
 		dayCell.append($('<i></i>').addClass('fa fa-user-md'));
 	}
 }
 
-function isPlanningDay(monthId, day, planning) {
-	return planning.monthId == monthId && planning.day == day;
+function isBeginningDay(month, day, from) {
+	return from.date.month == month && from.date.day == day;
 }
 
-function isRetrospectiveDay(monthId, day, retrospective) {
-	return retrospective.monthId == monthId && retrospective.day == day;
+function isEndingDay(month, day, to) {
+	if (to == "eternity") {
+		return false;
+	}
+	return to.date.month == month && to.date.day == day;
 }
 
-function isDayInSprint(monthId, day, planning, retrospective) {
-	if (planning.monthId == monthId && planning.day <= day || planning.monthId < monthId) {
-		if (retrospective == "infinity") {
+function isDayInInterval(month, day, from, to) {
+	if (from.date.month == month && from.date.day <= day || from.date.month < month) {
+		if (to == "eternity") {
 	   		return true;
 		}
-		return retrospective.monthId == monthId && retrospective.day >= day || retrospective.monthId > monthId;
+		return to.date.month == month && to.date.day >= day || to.date.month > month;
 	}
 	return false;
 }
 
-function appendFootersToSprints(sprints, season) {
-	sprints.append(createDaysOfWeekRow(season.months, season.startsOnDayOfWeek));
+function appendFootersToTimeline(timeline, season) {
+	timeline.append(createDaysOfWeekRow(season.months, season.startsOnDayOfWeek));
 }
 
 function createDaysOfWeekRow(months, startsOnDayOfWeek) {
@@ -227,7 +229,7 @@ function createDaysOfWeekRow(months, startsOnDayOfWeek) {
 	for (var i=0; i<months.length; i++) {
 		var month = months[i];
 		for (var j=1; j<month.numOfDays+1; j++) {
-			daysOfWeek.append($('<td></td>').addClass('vertical-text dayOfWeek').text(daysOfWeek[dayOfWeek]));
+			daysOfWeek.append($('<td></td>').addClass('vertical-text dayOfWeek').text(dowNames[dayOfWeek]));
 			dayOfWeek = advanceDayOfWeek(dayOfWeek, 1);
 		}
 	}

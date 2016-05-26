@@ -48,7 +48,7 @@ col {
 	transform-origin: left top 0;*/
 }
 
-.team-name {
+.swimlane-title {
 	height: 128px;
 	min-width: 55px;
 	padding-right: 25px;
