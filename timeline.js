@@ -2,11 +2,11 @@ var persianDigits = ['۰', '۱', '۲',  '۳',  '۴',  '۵',  '۶',  '۷',  '۸',
 var dowNames = ['شنبه', 'یک‌شنبه', 'دوشنبه',  'سه‌شنبه',  'چهارشنبه',  'پنج‌شنبه',  'جمعه'];
 
 $( document ).ready(function() {
-	$.getJSON('data.json', function( data ) {
+	$.getJSON('timeline.json', function( config ) {
 
-		addTitle(data.title);
+		addTitle(config.title);
 
-		addTimeline(data);
+		addTimeline(config);
 
 	});
 });
@@ -17,12 +17,12 @@ function addTitle(title) {
 	}
 }
 
-function addTimeline(data) {
+function addTimeline(config) {
 	var timeline = $('<table></table>').attr('cellspacing', 0);
 
-	appendHeadersToTimeline(timeline, data.season);
-	appendSwimlanesToTimeline(timeline, data.swimlanes, data.season.months);
-	appendFootersToTimeline(timeline, data.season);
+	appendHeadersToTimeline(timeline, config.season);
+	appendSwimlanesToTimeline(timeline, config.swimlanes, config.season.months);
+	appendFootersToTimeline(timeline, config.season);
 
 	$('#timeline').append(timeline);
 }
