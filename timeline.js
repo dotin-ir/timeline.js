@@ -42,28 +42,32 @@ ready(function() {
 
 function addTitle(title) {
 	if (title != 'disabled') {
-		$('#title').append($('<h1></h1>').text(title));
+		var titleElement = document.createElement('h1');
+		titleElement.textContent = title;
+		document.querySelector('#title').appendChild(titleElement);
 	}
 }
 
 function addTimeline(config) {
-	var timeline = $('<table></table>').attr('cellspacing', 0);
+	var timeline = document.createElement('table');
+	timeline.setAttribute('cellspacing', 0);
 
 	appendHeadersToTimeline(timeline, config.season);
 	appendSwimlanesToTimeline(timeline, config.swimlanes, config.season.months);
 	appendFootersToTimeline(timeline, config.season);
 
-	$('#timeline').append(timeline);
+	document.querySelector('#timeline').appendChild(timeline);
 }
 
 function appendHeadersToTimeline(timeline, season) {
-	timeline.append(createHeaderColumns(season.months, season.startsOnDayOfWeek, season.weekend));
-	timeline.append(createMonthsHeader(season.months));
-	timeline.append(createDaysHeader(season.months));
+	timeline.appendChild(createHeaderColumns(season.months, season.startsOnDayOfWeek, season.weekend));
+	timeline.appendChild(createMonthsHeader(season.months));
+	timeline.appendChild(createDaysHeader(season.months));
 }
 
 function createHeaderColumns(months, startsOnDayOfWeek, weekend) {
-	var colHeader = $('<colgroup></colgroup>').append(createTitleRowColumn());
+	var colHeader = document.createElement('colgroup');
+	colHeader.appendChild(createTitleRowColumn());
 
 	var dayOfWeek = startsOnDayOfWeek;
 	for (var i=0; i<months.length; i++) {
@@ -75,27 +79,36 @@ function createHeaderColumns(months, startsOnDayOfWeek, weekend) {
 }
 
 function createTitleRowColumn() {
-	return $('<col/>');
+	return document.createElement('col');
 }
 
 function appendMonthToColHeader(colHeader, month, numOfDays, firstDayOfWeek, weekend, holidays) {
 	dayOfWeek = firstDayOfWeek;
 	for (var dayOfMonth=1; dayOfMonth<=numOfDays; dayOfMonth++) {
-		colHeader.append(createColumnForDay(month, dayOfMonth, dayOfWeek, weekend, holidays));
+		colHeader.appendChild(createColumnForDay(month, dayOfMonth, dayOfWeek, weekend, holidays));
 		dayOfWeek++;
 		dayOfWeek %= 7;
 	}
 }
 
 function createColumnForDay(month, dayOfMonth, dayOfWeek, weekend, holidays) {
-	var col = $('<col/>').text(dayOfMonth);
+	var col = document.createElement('col');
+	col.textContent = dayOfMonth;
 	if (isWeekend(dayOfWeek, weekend) || isHolliday(dayOfMonth, holidays)) {
-		col.addClass('offDay');
+		addClass(col, 'offDay');
 	}
 	if (isToday(month, dayOfMonth)) {
-		col.addClass('today');
+		addClass(col, 'today');
 	}
 	return col;
+}
+
+function addClass(el, newClass) {
+	if (el.classList) {
+		el.classList.add(newClass);
+	} else {
+		el.className += ' ' + newClass;
+	}
 }
 
 function isWeekend (dayOfWeek, weekend) {
@@ -103,7 +116,7 @@ function isWeekend (dayOfWeek, weekend) {
 }
 
 function isHolliday(dayOfMonth, holidays) {
-	return $.inArray(dayOfMonth, holidays) != -1;
+	return holidays.indexOf(dayOfMonth) != -1;
 }
 
 function isToday(month, day) {
@@ -113,25 +126,36 @@ function isToday(month, day) {
 }
 
 function createMonthsHeader(months) {
-	var monthNamesHeader = $('<tr></tr>').addClass('monthNames').append($('<th></th>').text('ماه'));
+	var monthNamesHeader = document.createElement('tr');
+	addClass(monthNamesHeader, 'monthNames');
+
+	var monthNameHeaderTitleColumn = document.createElement('th');
+	monthNameHeaderTitleColumn.textContent = 'ماه';
+	monthNamesHeader.appendChild(monthNameHeaderTitleColumn);
 
 	for (var i=0; i<months.length; i++) {
-		monthNamesHeader.append(createMonthName(months[i]));
+		monthNamesHeader.appendChild(createMonthName(months[i]));
 	}
 	return monthNamesHeader;
 }
 
 function createMonthName(month) {
-	var monthName = $('<th></th>').text(month.name).attr('colspan', month.numOfDays);
+	var monthName = document.createElement('th');
+	monthName.textContent = month.name;
+	monthName.setAttribute('colspan', month.numOfDays);
 	if (month.id != 1) {
-		monthName.addClass('monthSeparator');
+		addClass(monthName, 'monthSeparator');
 	}
 	return monthName;
 }
 
 function createDaysHeader(months) {
-	var daysHeader = $('<tr></tr>').addClass('dayNumbers');
-	daysHeader.append($('<td></td>').text('روز'));
+	var daysHeader = document.createElement('tr');
+	addClass(daysHeader, 'dayNumbers');
+
+	var daysHeaderTitleColumn = document.createElement('td');
+	daysHeaderTitleColumn.textContent = 'روز';
+	daysHeader.appendChild(daysHeaderTitleColumn);
 	for (var i=0; i<months.length; i++) {
 		appendDaysHeaderForMonth(daysHeader, months[i]);
 	}
@@ -141,14 +165,16 @@ function createDaysHeader(months) {
 
 function appendDaysHeaderForMonth(daysHeader, month) {
 	for (var dayOfMonth=1; dayOfMonth<=month.numOfDays; dayOfMonth++) {
-		daysHeader.append(createDayHeader(month.id, dayOfMonth));
+		daysHeader.appendChild(createDayHeader(month.id, dayOfMonth));
 	}
 }
 
 function createDayHeader(month, dayOfMonth) {
-	var day = $('<td></td>').text(convert(dayOfMonth)).addClass('vertical-text');
+	var day = document.createElement('td');
+	day.textContent = convert(dayOfMonth);
+	addClass(day, 'vertical-text');
 	if (month != 1 && dayOfMonth == 1) {
-		day.addClass('monthSeparator');
+		addClass(day, 'monthSeparator');
 	}
 	return day;
 }
@@ -174,14 +200,14 @@ function appendSwimlanesToTimeline(timeline, swimlanes, months) {
 
 function appendSwimlaneToTimeline(timeline, swimlane, months) {
 	for (var intervalId=0; intervalId<swimlane.intervals.length; intervalId++) {
-		timeline.append(createIntervalRow(swimlane, intervalId, months));
+		timeline.appendChild(createIntervalRow(swimlane, intervalId, months));
 	}
 }
 
 function createIntervalRow(swimlane, intervalId, months) {
-	var intervalRow = $('<tr></tr>');
+	var intervalRow = document.createElement('tr');
 	if (intervalId == 0) {
-		intervalRow.append(createTitleCell(swimlane));
+		intervalRow.appendChild(createTitleCell(swimlane));
 	}
 
 	for (m = 0; m < months.length; m++) {
@@ -191,27 +217,28 @@ function createIntervalRow(swimlane, intervalId, months) {
 }
 
 function createTitleCell(swimlane) {
-	var titleCell = $('<td></td>').text(swimlane.title).addClass('vertical-text');
-	titleCell.addClass('swimlane-title');
-	titleCell.attr('rowspan', Math.max(1, swimlane.intervals.length));
-	titleCell.attr('style', 'background-color: ' + swimlane.color + ';');
+	var titleCell = document.createElement('td');
+	titleCell.textContent = swimlane.title;
+	addClass(titleCell, 'vertical-text');
+	titleCell.setAttribute('rowspan', Math.max(1, swimlane.intervals.length));
+	titleCell.setAttribute('style', 'background-color: ' + swimlane.color + ';');
 	return titleCell;
 }
 
 function appendMonthForInterval(intervalRow, month, interval, swimlaneColor) {
 	for (day = 1; day <= month.numOfDays; day++) {
-		intervalRow.append(createDayCell(month.id, day, interval.from, interval.to, swimlaneColor));
+		intervalRow.appendChild(createDayCell(month.id, day, interval.from, interval.to, swimlaneColor));
 	}
 }
 
 function createDayCell(month, day, from, to, swimlaneColor) {
-	var dayCell = $('<td></td>');
+	var dayCell = document.createElement('td');
 	if (month != 1 && day == 1) {
-		dayCell.addClass('monthSeparator');
+		addClass(dayCell, 'monthSeparator');
 	}
 	
 	if (isDayInInterval(month, day, from, to)) {
-		dayCell.attr('style', 'background-color: ' + swimlaneColor + ';');
+		dayCell.setAttribute('style', 'background-color: ' + swimlaneColor + ';');
 		applyDayIcons(dayCell, month, day, from, to);
 	}
 	return dayCell;
@@ -219,10 +246,16 @@ function createDayCell(month, day, from, to, swimlaneColor) {
 
 function applyDayIcons(dayCell, month, day, from, to) {
 	if (isBeginningDay(month, day, from)) {
-		dayCell.append($('<i></i>').addClass('fa fa-check-square-o'));
+		var icon = document.createElement('i');
+		addClass(icon, 'fa');
+		addClass(icon, 'fa-check-square-o');
+		dayCell.appendChild(icon);
 	}
 	if (isEndingDay(month, day, to)) {
-		dayCell.append($('<i></i>').addClass('fa fa-user-md'));
+		var icon = document.createElement('i');
+		addClass(icon, 'fa');
+		addClass(icon, 'fa-user-md');
+		dayCell.appendChild(icon);
 	}
 }
 
@@ -248,17 +281,22 @@ function isDayInInterval(month, day, from, to) {
 }
 
 function appendFootersToTimeline(timeline, season) {
-	timeline.append(createDaysOfWeekRow(season.months, season.startsOnDayOfWeek));
+	timeline.appendChild(createDaysOfWeekRow(season.months, season.startsOnDayOfWeek));
 }
 
 function createDaysOfWeekRow(months, startsOnDayOfWeek) {
-	var daysOfWeek = $('<tr></tr>').append('<td></td>');
+	var daysOfWeek = document.createElement('tr');
+	daysOfWeek.appendChild(document.createElement('td'));
 
 	var dayOfWeek = startsOnDayOfWeek;
 	for (var i=0; i<months.length; i++) {
 		var month = months[i];
 		for (var j=1; j<month.numOfDays+1; j++) {
-			daysOfWeek.append($('<td></td>').addClass('vertical-text dayOfWeek').text(dowNames[dayOfWeek]));
+			var dayOfWeekCell = document.createElement('td');
+			dayOfWeekCell.textContent = dowNames[dayOfWeek];
+			addClass(dayOfWeekCell, 'vertical-text');
+			addClass(dayOfWeekCell, 'dayOfWeek');
+			daysOfWeek.appendChild(dayOfWeekCell);
 			dayOfWeek = advanceDayOfWeek(dayOfWeek, 1);
 		}
 	}

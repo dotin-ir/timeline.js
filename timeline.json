@@ -1,8 +1,8 @@
 {
-	"title": "disabled",
+	"title": "سلام به همه",
 	"season": 
 	{
-		"startsOnDayOfWeek": 1,
+		"startsOnDayOfWeek": 0,
 		"weekend": 6,
 		"months":
 		[
