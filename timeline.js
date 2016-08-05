@@ -9,8 +9,29 @@ function ready(fn) {
 	}
 };
 
+function getJSON(url, fn) {
+	var request = new XMLHttpRequest();
+	request.open('GET', url, true);
+
+	request.onload = function() {
+	  if (request.status >= 200 && request.status < 400) {
+		var data = JSON.parse(request.responseText);
+		fn(data);
+	  } else {
+		// We reached our target server, but it returned an error
+
+	  }
+	};
+
+	request.onerror = function() {
+	  // There was a connection error of some sort
+	};
+
+	request.send();
+}
+
 ready(function() {
-	$.getJSON('timeline.json', function( config ) {
+	getJSON('timeline.json', function( config ) {
 
 		addTitle(config.title);
 
