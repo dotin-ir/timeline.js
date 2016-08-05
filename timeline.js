@@ -1,7 +1,15 @@
 var persianDigits = ['۰', '۱', '۲',  '۳',  '۴',  '۵',  '۶',  '۷',  '۸', '۹'];
 var dowNames = ['شنبه', 'یک‌شنبه', 'دوشنبه',  'سه‌شنبه',  'چهارشنبه',  'پنج‌شنبه',  'جمعه'];
 
-$( document ).ready(function() {
+function ready(fn) {
+	if (document.readyState != 'loading') {
+		fn();
+	} else {
+		document.addEventListener('DOMContentLoaded', fn);
+	}
+};
+
+ready(function() {
 	$.getJSON('timeline.json', function( config ) {
 
 		addTitle(config.title);
