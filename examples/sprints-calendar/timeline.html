@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+	<meta charset="utf-8">
+	<title>Sprint Timeline</title>
+	<link rel="stylesheet" href="style.css"/>
+    <script src="../../calendar.js"></script>
+    <script src="../../timeline.js"></script>
+	<script>
+        function ready(fn) {
+            if (document.readyState != 'loading') {
+                fn();
+            } else {
+                document.addEventListener('DOMContentLoaded', fn);
+            }
+        };
+
+        function getJSON(url, fn) {
+            var request = new XMLHttpRequest();
+            request.open('GET', url, true);
+
+            request.onload = function() {
+                if (request.status >= 200 && request.status < 400) {
+                    var data = JSON.parse(request.responseText);
+                    fn(data);
+                } else {
+                    // We reached our target server, but it returned an error
+                }
+            };
+
+            request.onerror = function() {
+                // There was a connection error of some sort
+            };
+
+            request.send();
+        }
+
+        ready(function() {
+            getJSON('timeline.json', function( config ) {
+                TimeLine.create("#timeline", config);
+            });
+        });
+
+
+	</script>
+</head>
+<body>
+	<div dir="rtl" id="timeline"></div>
+</body>
+</html>
