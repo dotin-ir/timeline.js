@@ -1,0 +1,250 @@
+{
+	"title": "سلام به همه",
+	"season": 
+	{
+		"startsOnDayOfWeek": 0,
+		"weekend": 6,
+		"months":
+		[
+			{
+				"id": 3,
+				"name": "خرداد",
+				"numOfDays":31,
+				"holidays": [2, 15]
+			},
+			{
+				"id": 4,
+				"name": "تیر",
+				"numOfDays":31,
+				"holidays": [7, 16, 17]
+			},
+			{
+				"id": 5,
+				"name": "مرداد",
+				"numOfDays":31,
+				"holidays": [9]
+			}
+		]
+	},
+	"swimlanes":
+	[
+		{
+			"title": "بهبود مستمر",
+			"color": "#dd4444",
+			"intervals":
+			[
+				{
+					"from": { "calendar": "Jalali", "date": {"year":1395, "month": 2, "day": 29 } },
+					"to": { "calendar": "Jalali", "date": {"year":1395, "month": 3, "day": 12 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": {"year":1395, "month": 3, "day": 12 } },
+					"to": { "calendar": "Jalali", "date": {"year":1395, "month": 3, "day": 26 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": {"year":1395, "month": 3, "day": 26 } },
+					"to": { "calendar": "Jalali", "date": {"year":1395, "month": 4, "day": 9 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": {"year":1395, "month": 4, "day": 9 } },
+					"to": { "calendar": "Jalali", "date": {"year":1395, "month": 4, "day": 23 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": {"year":1395, "month": 4, "day": 23 } },
+					"to": { "calendar": "Jalali", "date": {"year":1395, "month": 5, "day": 6 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": {"year":1395, "month": 5, "day": 6 } },
+					"to": { "calendar": "Jalali", "date": {"year":1395, "month": 5, "day": 20 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": {"year":1395, "month": 5, "day": 20 } },
+					"to": "eternity"
+				}
+			]
+		},
+		{
+			"title": "تسهیلات",
+			"color": "#62a222",
+			"intervals":
+			[
+				{
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 2, "day": 26 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 8 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 9 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 22 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 23 } },
+					"to": { "calendar": "Jalali", "date": {"year":1395, "month": 4, "day": 5 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": {"year":1395, "month": 4, "day": 6 } },
+					"to": { "calendar": "Jalali", "date": {"year":1395, "month": 4, "day": 19 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": {"year":1395, "month": 4, "day": 20 } },
+					"to": { "calendar": "Jalali", "date": {"year":1395, "month": 5, "day": 2 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": {"year":1395, "month": 5, "day": 3 } },
+					"to": { "calendar": "Jalali", "date": {"year":1395, "month": 5, "day": 16 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": {"year":1395, "month": 5, "day": 17 } },
+					"to": { "calendar": "Jalali", "date": {"year":1395, "month": 5, "day": 30 } }
+				}
+			]
+		},
+		{
+			"title": "حساب‌داری",
+			"color": "#7777dd",
+			"intervals":
+			[
+				{
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 2, "day": 28 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 10 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 11 } },
+					"to": { "calendar": "Jalali", "date": {"year":1395, "month": 3, "day": 24 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": {"year":1395, "month": 3, "day": 25 } },
+					"to": { "calendar": "Jalali", "date": {"year":1395, "month": 4, "day": 7 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": {"year":1395, "month": 4, "day": 8 } },
+					"to": { "calendar": "Jalali", "date": {"year":1395, "month": 4, "day": 21 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": {"year":1395, "month": 4, "day": 22 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 5, "day": 4 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": {"year":1395, "month": 5, "day": 5 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 5, "day": 18 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": {"year":1395, "month": 5, "day": 19 } },
+					"to": "eternity"
+				}
+			]
+		},
+		{
+			"title": "ضمانت‌نامه",
+			"color": "#ffbd00",
+			"intervals":
+			[
+				{
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 2, "day": 22 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 4 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 5 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 18 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 19 } },
+					"to": { "calendar": "Jalali", "date": {"year":1395, "month": 4, "day": 1 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": {"year":1395, "month": 4, "day": 2 } },
+					"to": { "calendar": "Jalali", "date": {"year":1395, "month": 4, "day": 15 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": {"year":1395, "month": 4, "day": 16 } },
+					"to": { "calendar": "Jalali", "date": {"year":1395, "month": 4, "day": 29 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": {"year":1395, "month": 4, "day": 30 } },
+					"to": { "calendar": "Jalali", "date": {"year":1395, "month": 5, "day": 12 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": {"year":1395, "month": 5, "day": 13 } },
+					"to": { "calendar": "Jalali", "date": {"year":1395, "month": 5, "day": 26 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": {"year":1395, "month": 5, "day": 27 } },
+					"to": "eternity"
+				}
+			]
+		},
+		{
+			"title": "منابع",
+			"color": "#00aadd",
+			"intervals":
+			[
+				{
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 3 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 16 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 17 } },
+					"to": { "calendar": "Jalali", "date": {"year":1395, "month": 3, "day": 30 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": {"year":1395, "month": 3, "day": 31 } },
+					"to": { "calendar": "Jalali", "date": {"year":1395, "month": 4, "day": 13 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": {"year":1395, "month": 4, "day": 14 } },
+					"to": { "calendar": "Jalali", "date": {"year":1395, "month": 4, "day": 27 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": {"year":1395, "month": 4, "day": 28 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 5, "day": 10 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": {"year":1395, "month": 5, "day": 11 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 5, "day": 24 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": {"year":1395, "month": 5, "day": 25 } },
+					"to": "eternity"
+				}
+			]
+		},
+		{
+			"title": "وصول مطالبات",
+			"color": "#ff8533",
+			"intervals":
+			[
+				{
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 2, "day": 18 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 1 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 1 } },
+					"to": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 15 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": { "year": 1395, "month": 3, "day": 15 } },
+					"to": { "calendar": "Jalali", "date": {"year":1395, "month": 3, "day": 29 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": {"year":1395, "month": 3, "day": 29 } },
+					"to": { "calendar": "Jalali", "date": {"year":1395, "month": 4, "day": 12 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": {"year":1395, "month": 4, "day": 12 } },
+					"to": { "calendar": "Jalali", "date": {"year":1395, "month": 4, "day": 26 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": {"year":1395, "month": 4, "day": 26 } },
+					"to": { "calendar": "Jalali", "date": {"year":1395, "month": 5, "day": 9 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": {"year":1395, "month": 5, "day": 9 } },
+					"to": { "calendar": "Jalali", "date": {"year":1395, "month": 5, "day": 23 } }
+				},
+				{
+					"from": { "calendar": "Jalali", "date": {"year":1395, "month": 5, "day": 23 } },
+					"to": "eternity"
+				}
+			]
+		}
+	]
+}
