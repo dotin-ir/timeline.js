@@ -33,7 +33,7 @@ var SwimlaneList = React.createClass({
 	render: function() {
 		var swimlanes = this.props.config.map(function(swimlane) {
 			return (
-				<Swimlane config={swimlane} />
+				<Swimlane config={swimlane} key={swimlane.title}/>
 			);
 		});
 		return (
