@@ -5,7 +5,6 @@ function getJSON(url, fn) {
 	request.onload = function() {
 		if (request.status >= 200 && request.status < 400) {
 			var data = JSON.parse(request.responseText);
-			console.log(data);
 			fn(data);
 		} else {
 			// We reached our target server, but it returned an error
@@ -19,41 +18,24 @@ function getJSON(url, fn) {
 	request.send();
 }
 
-var Swimlane = React.createClass({
-	render: function() {
-		return (
-			<div className="swimlane">
-				<h2>{this.props.config.title}</h2>
-			</div>
-		);
-	}
-});
+const Swimlane = props => (
+	<div className="swimlane">
+		<h2>{this.props.config.title}</h2>
+	</div>
+);
 
-var SwimlaneList = React.createClass({
-	render: function() {
-		var swimlanes = this.props.config.map(function(swimlane) {
-			return (
-				<Swimlane config={swimlane} key={swimlane.title}/>
-			);
-		});
-		return (
-			<div className="swimlaneList">
-				{swimlanes}
-			</div>
-		);
-	}
-});
+const SwimlaneList = props -> (
+	<div className="swimlaneList">
+		{props.config.map(swimlane =>  <Swimlane config={swimlane} key={swimlane.title}/>)}
+	</div>
+);
 
-var Timeline = React.createClass({
-	render: function() {
-		return (
-			<div className="timeline">
-				<h1>{this.props.config.title}</h1>
-				<SwimlaneList config={this.props.config.swimlanes} />
-			</div>
-		);
-	}
-});
+const Timeline = props => (
+	<div className="timeline">
+		<h1>{this.props.config.title}</h1>
+		<SwimlaneList config={this.props.config.swimlanes} />
+	</div>
+);
 
 getJSON('timeline.json', function(data) {
 	ReactDOM.render(
