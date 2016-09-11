@@ -18,28 +18,28 @@ function getJSON(url, fn) {
 	request.send();
 }
 
-const Swimlane = props => (
+const Swimlane = ({swimlane}) => (
 	<div className="swimlane">
-		<h2>{this.props.config.title}</h2>
+		<h2>{swimlane.title}</h2>
 	</div>
 );
 
-const SwimlaneList = props -> (
+const SwimlaneList = ({swimlanes}) => (
 	<div className="swimlaneList">
-		{props.config.map(swimlane =>  <Swimlane config={swimlane} key={swimlane.title}/>)}
+		{swimlanes.map(swimlane =>  <Swimlane swimlane={swimlane} key={swimlane.title}/>)}
 	</div>
 );
 
-const Timeline = props => (
+const Timeline = ({timeline}) => (
 	<div className="timeline">
-		<h1>{this.props.config.title}</h1>
-		<SwimlaneList config={this.props.config.swimlanes} />
+		<h1>{timeline.title}</h1>
+		<SwimlaneList swimlanes={timeline.swimlanes} />
 	</div>
 );
 
 getJSON('timeline.json', function(data) {
 	ReactDOM.render(
-		<Timeline config={data} />, document.getElementById('content')
+		<Timeline timeline={data} />, document.getElementById('content')
 	);
 });
 	
